@@ -1,7 +1,7 @@
 
 import plotly.graph_objects as go
-from config.datas import TOTAL_DESM, DT_LAST_YEAR, DEFAULT_MUN_IBGE, DEFAULT_STAT, DEFAULT_STAT_NAME, DEFAULT_MUN, ESTADOS
-from config.definitions import LABEL_FONT_SIZE, LABEL_CARD_SIZE, ANO_FIM
+from app.config.datas import TOTAL_DESM, DT_LAST_YEAR, DEFAULT_MUN_IBGE, DEFAULT_STAT, DEFAULT_STAT_NAME, DEFAULT_MUN, ESTADOS
+from app.config.definitions import LABEL_FONT_SIZE, LABEL_CARD_SIZE, ANO_FIM
 
 class TotalDesmatado:
 

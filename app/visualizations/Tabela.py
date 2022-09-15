@@ -1,8 +1,8 @@
 
 import plotly.graph_objects as go
 from dash import Dash, Input, Output, callback, dash_table
-from config.datas import PORC_AREA, DT_SET, DEFAULT_MUN_IBGE, ESTADOS, DT_SET_BY_MUN_DESMATAMENTO, DEFAULT_MUN, TOTAL_DESM, DEFAULT_STAT, DEFAULT_STAT_NAME, DT_LAST_YEAR, AREA_AL
-from config.definitions import LABEL_FONT_SIZE, LABEL_CARD_SIZE
+from app.config.datas import PORC_AREA, DT_SET, DEFAULT_MUN_IBGE, ESTADOS, DT_SET_BY_MUN_DESMATAMENTO, DEFAULT_MUN, TOTAL_DESM, DEFAULT_STAT, DEFAULT_STAT_NAME, DT_LAST_YEAR, AREA_AL
+from app.config.definitions import LABEL_FONT_SIZE, LABEL_CARD_SIZE
 
 class Tabela:
 

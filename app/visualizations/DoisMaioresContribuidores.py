@@ -5,8 +5,8 @@ import requests, json
 import plotly.express as px
 import plotly.graph_objects as go
 
-from config.datas import DT_SET, DT_INTR_ESTADO, DT_MAIOR_ESTADO, DT_MENOR_ESTADO 
-from config.definitions import MUN_GEO, PRIMARY_COLOR, SECONDARY_COLOR
+from app.config.datas import DT_SET, DT_INTR_ESTADO, DT_MAIOR_ESTADO, DT_MENOR_ESTADO 
+from app.config.definitions import MUN_GEO, PRIMARY_COLOR, SECONDARY_COLOR
 
 class DoisMaioresContribuidores:
 

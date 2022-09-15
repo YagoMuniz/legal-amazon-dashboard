@@ -4,7 +4,7 @@ import requests, json
 import plotly.express as px
 import plotly.graph_objects as go
 
-from config.definitions import DATASET_PATH, ANO_INI, ANO_FIM 
+from app.config.definitions import DATASET_PATH, ANO_INI, ANO_FIM 
 
 def load_dataset():
     datasets = []

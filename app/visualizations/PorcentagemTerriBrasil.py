@@ -1,7 +1,7 @@
 
 import plotly.graph_objects as go
-from config.datas import PORC_AREA, DT_SET, DEFAULT_MUN_IBGE, ESTADOS, DEFAULT_MUN, DEFAULT_STAT, DEFAULT_STAT_NAME, DT_LAST_YEAR, AREA_AL
-from config.definitions import LABEL_FONT_SIZE, LABEL_CARD_SIZE
+from app.config.datas import PORC_AREA, DT_SET, DEFAULT_MUN_IBGE, ESTADOS, DEFAULT_MUN, DEFAULT_STAT, DEFAULT_STAT_NAME, DT_LAST_YEAR, AREA_AL
+from app.config.definitions import LABEL_FONT_SIZE, LABEL_CARD_SIZE
 
 class PorcentagemTerriBrasil:
 

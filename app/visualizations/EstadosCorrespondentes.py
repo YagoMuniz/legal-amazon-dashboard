@@ -5,8 +5,8 @@ import requests, json
 import plotly.express as px
 import plotly.graph_objects as go
 
-from config.datas import DT_SET, DT_SUM_STATE, DT_LAST_YEAR, DESM_STATES
-from config.definitions import MUN_GEO
+from app.config.datas import DT_SET, DT_SUM_STATE, DT_LAST_YEAR, DESM_STATES
+from app.config.definitions import MUN_GEO
 
 
 class EstadosCorrespondentes:

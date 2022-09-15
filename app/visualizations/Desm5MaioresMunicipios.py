@@ -5,8 +5,8 @@ import requests, json
 import plotly.express as px
 import plotly.graph_objects as go
 
-from config.datas import DT_5_MAIS
-from config.definitions import PRIMARY_COLOR, SECONDARY_COLOR
+from app.config.datas import DT_5_MAIS
+from app.config.definitions import PRIMARY_COLOR, SECONDARY_COLOR
 
 class Desm5MaioresMunicipios:
 

@@ -5,8 +5,8 @@ import requests, json
 import plotly.express as px
 import plotly.graph_objects as go
 
-from config.datas import DT_LAST_YEAR_BY_STATE, DT_SET
-from config.definitions import PRIMARY_COLOR, SECONDARY_COLOR
+from app.config.datas import DT_LAST_YEAR_BY_STATE, DT_SET
+from app.config.definitions import PRIMARY_COLOR, SECONDARY_COLOR
 
 class FlorestasRestantes:
 

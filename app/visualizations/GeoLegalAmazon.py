@@ -4,8 +4,8 @@ import plotly.graph_objects as go
 import plotly.express as px
 import json
 
-from config.datas import DT_SET, DT_SET_BY_STATE_DESMATAMENTO, DT_SET_BY_MUN_DESMATAMENTO
-from config.definitions import MUN_GEO, STATES_GEO, GEO_DEFORESTATION, GEO_DEFORESTATION_MUN
+from app.config.datas import DT_SET, DT_SET_BY_STATE_DESMATAMENTO, DT_SET_BY_MUN_DESMATAMENTO
+from app.config.definitions import MUN_GEO, STATES_GEO, GEO_DEFORESTATION, GEO_DEFORESTATION_MUN
 class GeoLegalAmazon:
     @staticmethod
     def build():

@@ -5,8 +5,8 @@ import requests, json
 import plotly.express as px
 import plotly.graph_objects as go
 
-from config.datas import DT_21_ANOS, DT_SET_BY_STATE_DESMATAMENTO, DT_SET_BY_STATE_FLOREST, STATES, PERC_DESMATADO
-from config.definitions import PRIMARY_COLOR, SECONDARY_COLOR, CARD_BARS_SIZE
+from app.config.datas import DT_21_ANOS, DT_SET_BY_STATE_DESMATAMENTO, DT_SET_BY_STATE_FLOREST, STATES, PERC_DESMATADO
+from app.config.definitions import PRIMARY_COLOR, SECONDARY_COLOR, CARD_BARS_SIZE
 
 class Desmatamento21Anos:
 

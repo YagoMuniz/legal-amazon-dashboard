@@ -5,29 +5,29 @@ import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
 from dash.dependencies import Input, Output, State, ClientsideFunction
-from visualizations.LegalAmazonMap import LegalAmazonMap
-from visualizations.DoisMaioresContribuidores import DoisMaioresContribuidores as dmc
-from visualizations.EstadosCorrespondentes import EstadosCorrespondentes as ec
-from visualizations.ArcoDesmatamento import ArcoDesmatamento as ad
-from visualizations.Desmatamento21Anos import Desmatamento21Anos as desm21Anos
-from visualizations.Desm5MaioresMunicipios import Desm5MaioresMunicipios as desm5mais
-from visualizations.Desm5MaioresByPeriodo import Desm5MaioresByPeriodo as desm5maisPeriodo
-from visualizations.FlorestasRestantes import FlorestasRestantes as florestasRestantes
-from visualizations.Area import Area
-from visualizations.Title import Title
-from visualizations.Desm21AnosLabel import Desm21AnosLabel
-from visualizations.PorcentagemTerriBrasil import PorcentagemTerriBrasil
-from visualizations.PorcentagemDesmatamento import PorcentagemDesmatamento
-from visualizations.TotalDesmatado import TotalDesmatado
-from visualizations.DesmBarra import DesmBarra
-from visualizations.MaiorAnoLabel import MaiorAnoLabel
-from visualizations.MaiorAnoKmLabel import MaiorAnoKmLabel
-from visualizations.FlorestaRestanteLabel import FlorestaRestanteLabel
-from visualizations.Tabela import Tabela
-from visualizations.GeoLegalAmazon import GeoLegalAmazon
+from app.visualizations.LegalAmazonMap import LegalAmazonMap
+from app.visualizations.DoisMaioresContribuidores import DoisMaioresContribuidores as dmc
+from app.visualizations.EstadosCorrespondentes import EstadosCorrespondentes as ec
+from app.visualizations.ArcoDesmatamento import ArcoDesmatamento as ad
+from app.visualizations.Desmatamento21Anos import Desmatamento21Anos as desm21Anos
+from app.visualizations.Desm5MaioresMunicipios import Desm5MaioresMunicipios as desm5mais
+from app.visualizations.Desm5MaioresByPeriodo import Desm5MaioresByPeriodo as desm5maisPeriodo
+from app.visualizations.FlorestasRestantes import FlorestasRestantes as florestasRestantes
+from app.visualizations.Area import Area
+from app.visualizations.Title import Title
+from app.visualizations.Desm21AnosLabel import Desm21AnosLabel
+from app.visualizations.PorcentagemTerriBrasil import PorcentagemTerriBrasil
+from app.visualizations.PorcentagemDesmatamento import PorcentagemDesmatamento
+from app.visualizations.TotalDesmatado import TotalDesmatado
+from app.visualizations.DesmBarra import DesmBarra
+from app.visualizations.MaiorAnoLabel import MaiorAnoLabel
+from app.visualizations.MaiorAnoKmLabel import MaiorAnoKmLabel
+from app.visualizations.FlorestaRestanteLabel import FlorestaRestanteLabel
+from app.visualizations.Tabela import Tabela
+from app.visualizations.GeoLegalAmazon import GeoLegalAmazon
 from flask import Flask
 
-from config.datas import ESTADOS
+from app.config.datas import ESTADOS
 
 import locale
 locale.setlocale(locale.LC_NUMERIC, '')

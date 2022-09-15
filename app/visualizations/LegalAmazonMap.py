@@ -5,8 +5,8 @@ import requests, json
 import plotly.express as px
 import plotly.graph_objects as go
 
-from config.datas import DT_SET, DT_SET_BY_STATE_DESMATAMENTO, DT_SET_BY_MUN_DESMATAMENTO
-from config.definitions import MUN_GEO, STATES_GEO
+from app.config.datas import DT_SET, DT_SET_BY_STATE_DESMATAMENTO, DT_SET_BY_MUN_DESMATAMENTO
+from app.config.definitions import MUN_GEO, STATES_GEO
 
 
 class LegalAmazonMap:

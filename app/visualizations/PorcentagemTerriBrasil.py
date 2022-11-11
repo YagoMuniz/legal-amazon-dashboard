@@ -41,6 +41,6 @@ class PorcentagemTerriBrasil:
     def build(porc, name):
         fig = go.Figure()
         fig.add_trace(go.Indicator(mode="number", value=porc, number={ 'suffix': '%', 'font':{'size':LABEL_FONT_SIZE}}))
-        fig.update_layout(height=LABEL_CARD_SIZE, title='Totalidade no território brasileiro: %s'%name)
+        fig.update_layout(height=LABEL_CARD_SIZE, title='Totalidade no território da Amazônia Legal: %s'%name)
         
         return fig

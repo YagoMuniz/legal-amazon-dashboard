@@ -38,8 +38,9 @@ class DesmBarra:
 
     @staticmethod
     def build(dtDesmatamento, nome, qtdDesmatada):
-        fig = go.Figure(data=[go.Bar(name='Incremento', y=dtDesmatamento.Incremento, x=dtDesmatamento.Ano, text=dtDesmatamento.Incremento, textposition='outside', texttemplate='%{text:.3s} km²', marker=dict(
-                color=PRIMARY_COLOR["color"], line=dict(color=PRIMARY_COLOR["line"], width=1)))])
+        fig = go.Figure(data=[go.Bar(name='Incremento', y=dtDesmatamento.Incremento, x=dtDesmatamento.Ano, 
+            text=dtDesmatamento.Incremento, textposition='outside', texttemplate='%{text:.3s} km²', marker=dict(
+            color=PRIMARY_COLOR["color"], line=dict(color=PRIMARY_COLOR["line"], width=1)))])
         fig.update_xaxes(dtick="M1")
         fig.update_layout(title='%s: Desmatamento 2000 - 2020  (%.2f km²)'%(nome, qtdDesmatada))
         return fig

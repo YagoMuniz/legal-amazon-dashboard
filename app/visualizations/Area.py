@@ -27,7 +27,8 @@ class Area:
     @staticmethod
     def buildLegalAmazon():
         fig = go.Figure()
-        fig.add_trace(go.Indicator(mode='number', value=AREA_AL, number={ 'suffix': ' km²', 'valueformat': ',.2f', 'font':{'size':LABEL_FONT_SIZE}}))
+        fig.add_trace(go.Indicator(mode='number', value=AREA_AL, 
+            number={ 'suffix': ' km²', 'valueformat': ',.2f', 'font':{'size':LABEL_FONT_SIZE}}))
         fig.update_layout(height=LABEL_CARD_SIZE, title='Área da Amazônia Legal')
         
         return fig
@@ -36,7 +37,8 @@ class Area:
     def build(area, name, typeData):
 
         fig = go.Figure()
-        fig.add_trace(go.Indicator(mode='number', value=area, number={ 'suffix': ' km²', 'valueformat': ',.2f', 'font':{'size':LABEL_FONT_SIZE}}))
+        fig.add_trace(go.Indicator(mode='number', value=area, 
+            number={ 'suffix': ' km²', 'valueformat': ',.2f', 'font':{'size':LABEL_FONT_SIZE}}))
         fig.update_layout(height=LABEL_CARD_SIZE, title='Área do %s de %s'%(typeData, name))
         
         return fig

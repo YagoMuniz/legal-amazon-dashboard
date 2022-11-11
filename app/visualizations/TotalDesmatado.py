@@ -28,7 +28,6 @@ class TotalDesmatado:
     def buildLegalAmazon():
         fig = go.Figure()
         fig.add_trace(go.Indicator(mode="number", value=TOTAL_DESM, number={ 'suffix': ' km²', 'valueformat': ',.2f', 'font':{'size':LABEL_FONT_SIZE}}))
-        # fig.update_traces(texttemplate='%{text:,}')
         fig.update_layout(height=LABEL_CARD_SIZE, title='Total desmatado até o ano de %d'%ANO_FIM)
         return fig
 
@@ -36,7 +35,8 @@ class TotalDesmatado:
     def build(total, name):
 
         fig = go.Figure()
-        fig.add_trace(go.Indicator(mode="number", value=total, number={ 'suffix': ' km²', 'valueformat': ',.2f', 'font':{'size':LABEL_FONT_SIZE}}))
+        fig.add_trace(go.Indicator(mode="number", value=total, 
+            number={ 'suffix': ' km²', 'valueformat': ',.2f', 'font':{'size':LABEL_FONT_SIZE}}))
         fig.update_layout(height=LABEL_CARD_SIZE, title='%s desmatou um total de'%name)
         
         return fig

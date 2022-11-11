@@ -55,6 +55,113 @@ def getCountEstadosDesmatados():
 def getSumState():
     return DT_LAST_YEAR.groupby('Estado').sum().reset_index().sort_values('AreaKm2')
 
+def getDtTotal():
+    return DT_LAST_YEAR.sum().Desmatamento
+
+def getStateExtensao():
+    return DT_LAST_YEAR.groupby('Estado').sum().reset_index().sort_values('AreaKm2')
+
+def getArcoDesmatamento():
+    return DT_LAST_YEAR.sort_values('Desmatamento', ascending=False).head(50)
+
+def getSetByStateDesmatamento():
+    return  DT_LAST_YEAR.groupby("Estado").sum().reset_index()
+
+def getSetByMunDesmatamento():
+    return  DT_LAST_YEAR.groupby(["CodIbge", "Municipio"]).sum().reset_index()
+
+def getSetByStateFlorest():
+    return  DT_SET.query('Ano==2000').groupby('Estado').sum().reset_index()
+
+def getDt21Anos(): 
+    return DT_SET_BY_STATE_DESMATAMENTO.Desmatamento - DT_SET_BY_STATE_FLOREST.Desmatamento
+
+def getPercDesmatamento(): 
+    return DT_SET_BY_STATE_FLOREST.Desmatamento / DT_SET_BY_STATE_DESMATAMENTO.Desmatamento * 100
+
+def getMaisDesmatamento(): 
+    return DT_LAST_YEAR.sort_values('Desmatamento', ascending=False).head(5).CodIbge
+
+def getDt5Mais(): 
+    return DT_SET.query('CodIbge in @MAIS_DESM')
+
+def getDt5MaisSoma(): 
+    return DT_5_MAIS.groupby('Ano').sum().reset_index()
+
+def getDt5MaisPeriodo1(): 
+    return DT_5_MAIS_SOMA.query('Ano <= 2005')
+
+def getDt5MaisPeriodo2(): 
+    return DT_5_MAIS_SOMA.query('Ano > 2005 and Ano <= 2010')
+
+def getDt5MaisPeriodo3(): 
+    return DT_5_MAIS_SOMA.query('Ano > 2010 and Ano <= 2017')
+
+def getDt5MaisPeriodo4(): 
+    return DT_5_MAIS_SOMA.query('Ano >= 2018')
+
+def getDtLastYearByState():
+    return DT_LAST_YEAR.groupby('Estado').sum().reset_index().sort_values('Floresta', ascending=False)
+
+def getTotalDesmatamento():
+    return DT_LAST_YEAR.sum().Desmatamento
+
+def getDesmatamentoAntesAno2000():
+    return DT_FIRST_YEAR.sum().Desmatamento
+
+def getTotalDesmatamento21Anos():
+    return TOTAL_DESM - DESM_BEF_2000
+
+def getAreaAmazoniaLegal():
+    return DT_LAST_YEAR.AreaKm2.sum()
+
+
+
+DT_SET = load_dataset() 
+DT_INTR_ESTADO = getDtIntrEstado()
+DT_MAIOR_ESTADO = getDtMaiorEstado()
+DT_MENOR_ESTADO = getDtMenorEstado()
+DT_LAST_YEAR = getDtLastYear()
+DT_FIRST_YEAR = getDtFirstYear()
+DT_CORRESPONDENTE = getDtCorrespondetes()
+
+DT_TOTAL = getDtTotal()
+DT_STATE_EXTENSAO = getStateExtensao()
+DESM_STATES = getCountEstadosDesmatados()
+DT_SUM_STATE = getSumState()
+DT_ARCO = getArcoDesmatamento()
+
+DT_SET_BY_STATE_DESMATAMENTO = getSetByStateDesmatamento()
+DT_SET_BY_MUN_DESMATAMENTO = getSetByMunDesmatamento()
+DT_SET_BY_STATE_FLOREST = getSetByStateFlorest()
+
+
+DT_21_ANOS = getDt21Anos()
+PERC_DESMATADO = getPercDesmatamento()
+MAIS_DESM = getMaisDesmatamento()
+DT_5_MAIS = getDt5Mais()
+DT_5_MAIS_SOMA = getDt5MaisSoma()
+
+DT_5_MAIS_PERIODO_1 = getDt5MaisPeriodo1()
+DT_5_MAIS_PERIODO_2 = getDt5MaisPeriodo2()
+DT_5_MAIS_PERIODO_3 = getDt5MaisPeriodo3()
+DT_5_MAIS_PERIODO_4 = getDt5MaisPeriodo4()
+
+DT_LAST_YEAR_BY_STATE = getDtLastYearByState()
+
+TOTAL_DESM = getTotalDesmatamento()
+DESM_BEF_2000 = getDesmatamentoAntesAno2000()
+TOTAL_DESM_21_ANOS = getTotalDesmatamento21Anos()
+
+AREA_AL = getAreaAmazoniaLegal()
+
+AREA_BR = 8510345.538
+PORC_AREA = (AREA_AL/AREA_BR) * 100  
+
+DEFAULT_MUN = "Altamira"
+DEFAULT_MUN_IBGE = 1500602
+DEFAULT_STAT = "AC"
+DEFAULT_STAT_NAME = "Acre"
 
 ESTADOS = {
     "AC": "Acre",
@@ -67,41 +174,5 @@ ESTADOS = {
     "RR": "Roraima",
     "TO": "Tocantins"
 }
-DT_SET = load_dataset() 
-DT_INTR_ESTADO = getDtIntrEstado()
-DT_MAIOR_ESTADO = getDtMaiorEstado()
-DT_MENOR_ESTADO = getDtMenorEstado()
-DT_LAST_YEAR = getDtLastYear()
-DT_FIRST_YEAR = getDtFirstYear()
-DT_CORRESPONDENTE = getDtCorrespondetes()
-DT_TOTAL = DT_LAST_YEAR.sum().Desmatamento
-DT_STATE_EXTENSAO = DT_LAST_YEAR.groupby('Estado').sum().reset_index().sort_values('AreaKm2')
-DESM_STATES = getCountEstadosDesmatados()
-DT_SUM_STATE = getSumState()
-DT_ARCO = DT_LAST_YEAR.sort_values('Desmatamento', ascending=False).head(50)
 
-DT_SET_BY_STATE_DESMATAMENTO = DT_LAST_YEAR.groupby("Estado").sum().reset_index()
-DT_SET_BY_MUN_DESMATAMENTO = DT_LAST_YEAR.groupby(["CodIbge", "Municipio"]).sum().reset_index()
-DT_SET_BY_STATE_FLOREST = DT_SET.query('Ano==2000').groupby('Estado').sum().reset_index()
-
-DT_21_ANOS = DT_SET_BY_STATE_DESMATAMENTO.Desmatamento - DT_SET_BY_STATE_FLOREST.Desmatamento
 STATES = list(DT_SET_BY_STATE_DESMATAMENTO.Estado.unique())
-PERC_DESMATADO = DT_SET_BY_STATE_FLOREST.Desmatamento / DT_SET_BY_STATE_DESMATAMENTO.Desmatamento *100
-MAIS_DESM = DT_LAST_YEAR.sort_values('Desmatamento', ascending=False).head(5).CodIbge
-DT_5_MAIS = DT_SET.query('CodIbge in @MAIS_DESM')
-DT_5_MAIS_SOMA = DT_5_MAIS.groupby('Ano').sum().reset_index()
-DT_5_MAIS_PERIODO_1 = DT_5_MAIS_SOMA.query('Ano <= 2005')
-DT_5_MAIS_PERIODO_2 = DT_5_MAIS_SOMA.query('Ano > 2005 and Ano <= 2010')
-DT_5_MAIS_PERIODO_3 = DT_5_MAIS_SOMA.query('Ano > 2010 and Ano <= 2017')
-DT_5_MAIS_PERIODO_4 = DT_5_MAIS_SOMA.query('Ano >= 2018')
-DT_LAST_YEAR_BY_STATE = DT_LAST_YEAR.groupby('Estado').sum().reset_index().sort_values('Floresta', ascending=False)
-AREA_AL = DT_LAST_YEAR.AreaKm2.sum()
-AREA_BR = 8510345.538
-PORC_AREA = (AREA_AL/AREA_BR) * 100  
-TOTAL_DESM = DT_LAST_YEAR.sum().Desmatamento
-DESM_BEF_2000 = DT_FIRST_YEAR.sum().Desmatamento
-TOTAL_DESM_21_ANOS = TOTAL_DESM - DESM_BEF_2000
-DEFAULT_MUN = "Altamira"
-DEFAULT_MUN_IBGE = 1500602
-DEFAULT_STAT = "AC"
-DEFAULT_STAT_NAME = "Acre"

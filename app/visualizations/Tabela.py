@@ -9,31 +9,30 @@ class Tabela:
     
     @staticmethod
     def buildByMunDefault():
-        value = [DEFAULT_MUN_IBGE]
+        value = [DEFAULT_MUN_IBGE, DEFAULT_MUN]
         return Tabela.buildByMun(value)
 
     @staticmethod
     def buildByMun(value):
         data = DT_SET.query("CodIbge==%s"%value[0])
-        # data = data.loc[:, data.columns.isin(['Ano', 'Incremento', 'Desmatamento', 'Floresta'])]
-        # reindexData = data.reindex(columns=['Ano', 'Incremento', 'Desmatamento', 'Floresta'])
-        return Tabela.build(data)  
+        nome = value[1]
+        return Tabela.build(data, nome)  
 
     @staticmethod
     def buildByState(value):
         data = DT_SET.query("Estado=='%s'"%value[0]).groupby('Ano').sum().reset_index()
-        return Tabela.build(data)  
+        nome = ESTADOS[value[0]]
+        return Tabela.build(data, nome)  
     
     @staticmethod
     def buildByStateDefault():
-        value = [DEFAULT_STAT]  
+        value = [DEFAULT_STAT, DEFAULT_STAT_NAME]  
         return Tabela.buildByState(value)
         
 
     @staticmethod
-    def build(data):
-        fig = go.Figure(data=[go.Table(header=dict(values=['Ano', 'Desmatado', 'Acumulado', 'Florestas restantes']), 
-            cells=dict(values=[data.Ano, data.Incremento, data.Desmatamento, data.Floresta], align='left'))])
-        fig.update_layout(title="Informações")
+    def build(data, nome):
+        fig = go.Figure(data=[go.Table(header=dict(values=['Ano', 'Desmatado', 'Florestas restantes']), 
+            cells=dict(values=[data.Ano, data.Incremento, data.Floresta], align='left'))])
+        fig.update_layout(margin=dict(r=50, l=50, t=50, b=50), title="Informações de %s"%nome)
         return fig
-        # return dash_table.DataTable(data.to_dict('records'), [{"name": i, "id": i} for i in data.columns], id='tbl', style_cell=dict(textAlign='left'))

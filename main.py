@@ -24,7 +24,9 @@ from app.visualizations.MaiorAnoLabel import MaiorAnoLabel
 from app.visualizations.MaiorAnoKmLabel import MaiorAnoKmLabel
 from app.visualizations.FlorestaRestanteLabel import FlorestaRestanteLabel
 from app.visualizations.Tabela import Tabela
-from app.visualizations.GeoLegalAmazon import GeoLegalAmazon
+from app.visualizations.DadosIniciaisALLabel import DadosIniciaisALLabel
+
+# from app.visualizations.GeoLegalAmazon import GeoLegalAmazon
 from flask import Flask
 
 from app.config.datas import ESTADOS
@@ -63,13 +65,96 @@ map_state = dbc.Card(
     ]
 )
 
-mapa_arco = dbc.Card(
-    [
-        html.Div(children=[
-            dcc.Graph( id='arco-desm', figure=GeoLegalAmazon.build(), config=dashConfig )]
-        )
-    ]
-)
+# mapa_arco = dbc.Card(
+#     [
+#         # html.Div(children=[
+#         #     dcc.Graph( id='arco-desm', figure=GeoLegalAmazon.build(), config=dashConfig )]
+#         # )
+#         html.Div()
+#     ]
+# )
+
+
+# mapa_arco = dbc.Card(
+#    [
+#         html.Div(children=[
+#             dbc.Row([
+#                 dbc.Col([
+#                     dbc.Row([
+#                         dbc.Col(html.Div(children=[html.Label('Ano'),]), md=9),
+#                         dbc.Col(html.Div(children=[dcc.Dropdown([str(ano) for ano in range(2000, 2021)], '2000', id="ddEscolhaAnoInfo"),]), md=3),
+#                     ])])
+#             ]),
+#             dbc.Row([
+#                 dbc.Col(dcc.Graph(id='ttDesm1', figure=TotalDesmatado.buildLegalAmazon())),
+#             ]),
+#             dbc.Row([
+#                 dbc.Col(dcc.Graph(id='ttDesm1', figure=TotalDesmatado.buildLegalAmazon())),
+#             ]),
+#             dbc.Row([
+#                 dbc.Col(dcc.Graph(id='ttDesm1', figure=TotalDesmatado.buildLegalAmazon())),
+#             ]),
+#         ])
+#     ]
+# )
+
+# mapa_arco = dbc.Card(
+#     [
+#         html.Div(children=[
+
+#             dbc.Row([
+#                 dbc.Col([
+#                     dbc.Row([
+#                         dbc.Col(html.Div(children=[html.Label('Ano'),]), md=9),
+#                         dbc.Col(html.Div(children=[dcc.Dropdown([str(ano) for ano in range(2000, 2021)], '2000', id="ddEscolhaAnoInfo"),]), md=3),
+#                     ])])
+#             ]),
+#             dbc.Row([
+#                 dbc.Col([
+#                     dbc.Row([
+#                         dbc.Col(html.Div(children=[html.Label('Desmatamento')]), md=6),
+#                         dbc.Col(html.Div(children=[html.Label('123q2323232 Km²')]), md=6, style={'textAlign': 'end'})
+#                     ]),
+#                     dbc.Row([
+#                         dbc.Col(html.Div([dbc.Progress(value=50)]))
+#                     ])]),
+#             ]),
+#             dbc.Row([
+#                 dbc.Col([
+#                     dbc.Row([
+#                         dbc.Col(html.Div(children=[html.Label('Floresta')]), md=6),
+#                         dbc.Col(html.Div(children=[html.Label('123 Km²')]), md=6, style={'textAlign': 'end'})
+#                     ]),
+#                     dbc.Row([
+#                         dbc.Col(html.Div([dbc.Progress(value=50)]))
+#                     ])]),
+#             ]),
+#             dbc.Row([
+#                 dbc.Col([
+#                     dbc.Row([
+#                         dbc.Col(html.Div(children=[html.Label('Hidrografia')]), md=6),
+#                         dbc.Col(html.Div(children=[html.Label('123 Km²')]), md=6, style={'textAlign': 'end'})
+#                     ]),
+#                     dbc.Row([
+#                         dbc.Col(html.Div([dbc.Progress(value=50)]))
+#                     ])]),
+#             ]),
+#             dbc.Row([
+#                 dbc.Col([
+#                     dbc.Row([
+#                         dbc.Col(html.Div(children=[html.Label('Não observada')]), md=6),
+#                         dbc.Col(html.Div(children=[html.Label('123 Km²')]), md=6, style={'textAlign': 'end'})
+#                     ]),
+#                     dbc.Row([
+#                         dbc.Col(html.Div([dbc.Progress(value=50)]))
+#                     ])]),
+#             ]),
+            
+           
+#             # dcc.Graph(id='info-al', figure=DadosIniciaisALLabel.build())
+#         ])
+#     ]
+# )
 
 florestas = dbc.Card(
     [
@@ -298,7 +383,7 @@ titleState = html.H1(id="labelState", children=Title.buildByStateDefault())
 title = html.H1(id="labelLA", children=Title.buildLegalAmazon())
 
 visao_geral = html.Div(children=[
-    title,
+    # title,
     html.Div(children=[
             dbc.Row([
                 dbc.Col(area, md=3),
@@ -309,15 +394,14 @@ visao_geral = html.Div(children=[
         ]),
         html.Div(children=[
             dbc.Row([
-                dbc.Col(mapa, md=4),
-                dbc.Col(mapa_arco, md=4),
-                dbc.Col(florestas, md=4)
+                dbc.Col(mapa, md=3),
+                dbc.Col(florestas, md=4),
+                dbc.Col(desmatamento21anos, md=5)
             ])
         ]),
         html.Div(children=[
             dbc.Row([
-                dbc.Col(cidades, md=6),
-                dbc.Col(desmatamento21anos, md=6)
+                dbc.Col(cidades, md=12)
             ])
         ])
     ]
